@@ -1,6 +1,6 @@
-import PropTypes from "react";
+import PropTypes from "prop-types";
 
-function SliderItem({ imageSrc }) {
+const SliderItem = ({ imageSrc }) => {
   return (
     <div className="slider-item fade">
       <div className="slider-image">
@@ -15,7 +15,7 @@ function SliderItem({ imageSrc }) {
       </div>
     </div>
   );
-}
+};
 
 export default SliderItem;
 
