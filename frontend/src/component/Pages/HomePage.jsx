@@ -1,11 +1,11 @@
 import React from "react";
-import Slider from "../component/Slider/Slider";
-import Category from "../component/Category/Category";
-import Product from "../component/Product/Product";
-import Campaigns from "../component/Campaigns/Campaigns";
-import Blog from "../component/Blog/Blog";
-import Brands from "../component/Brands/Brands";
-import CampaignSingle from "../component/CampaignSingle/CampaignSingle";
+import Slider from "../Slider/Slider";
+import Category from "../Category/Category";
+import Product from "../Product/Product";
+import Campaigns from "../Campaigns/Campaigns";
+import Blog from "../Blog/Blog";
+import Brands from "../Brands/Brands";
+import CampaignSingle from "../CampaignSingle/CampaignSingle";
 
 const HomePage = () => {
     return (
