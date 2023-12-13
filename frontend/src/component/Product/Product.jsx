@@ -3,7 +3,7 @@ import ProductItem from "./Product-Item";
 import "./Product.css";
 import Slider from "react-slick";
 import PropTypes from "prop-types";
-import ProductsData from "../../data.json";
+import productData from "../../data.json";
 
 function NextBtn({ onClick }) {
   return (
@@ -30,7 +30,9 @@ PrevBtn.propTypes = {
 };
 
 const Product = () => {
-  const [products] = useState(ProductsData);
+  const [products] = useState(productData);
+  const [cartItems, setCartItems] = useState([])
+  console.log(cartItems);
 
   const sliderSettings = {
     dots: false,
@@ -39,8 +41,8 @@ const Product = () => {
     slidesToScroll: 1,
     nextArrow: <NextBtn />,
     prevArrow: <PrevBtn />,
-    autoplaySpeed: 3000,
-    autoplay: true,
+    autoplaySpeed: 3000, //Otomatik döndürme süresi
+    autoplay: true, //otomatik döndürmeyi etkinleştirdi
     responsive: [
       {
         breakpoint: 992,
@@ -49,7 +51,7 @@ const Product = () => {
         },
       },
       {
-        breakpoint: 520,
+        breakpoint: 520, //Ölçü hangi ölçüde ne olsun gibi
         settings: {
           slidesToShow: 1,
         },
@@ -67,7 +69,7 @@ const Product = () => {
         <div className="product-wrapper product-carousel">
         <Slider {...sliderSettings}>
             {products.map((product) => (
-              <ProductItem product={product} key={product.id} />
+              <ProductItem productItem={product} setCartItems={setCartItems} key={product.id} />
             ))}
           </Slider>
         </div>
