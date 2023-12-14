@@ -1,16 +1,16 @@
 //import { useState } from "react";
+import { useContext } from "react";
 import "./Product-Item.css";
 import PropTypes from "prop-types";
+import { CartContext } from "../../context/CartProvider";
 
-const ProductItem = ({productItem, setCartItems}) => {
+const ProductItem = ({productItem}) => {
+const {cartItems,addToCart}=useContext(CartContext)
 
-  const addToCart = (cartItem) => {
-    setCartItems((prevCart)=>[...prevCart,cartItem])    
-  };
-
+const filteredCart=cartItems.find((cartItem) =>cartItem.id===productItem.id);
   return (
     <div className="product-item glide__slide glide__slide--active">
-      <div className="product-image">
+        <div className="product-image">
         <a href="#">
           <img src={productItem.img.singleImage} alt="" className="img1" />
           <img src={productItem.img.thumbs[1]} alt="" className="img2" />
@@ -41,9 +41,11 @@ const ProductItem = ({productItem, setCartItems}) => {
           <strong className="new-price">${productItem.price.newPrice.toFixed(2)}</strong>
           <span className="old-price">${productItem.price.oldPrice.toFixed(2)}</span>
         </div>
-        <span className="product-discount">--%{productItem.discount}</span>
+        <span className="product-discount">%{productItem.discount}</span>
         <div className="product-links">
-          <button onClick={()=>addToCart(productItem)} className="add-to-cart">
+          <button onClick={()=>addToCart(productItem)} 
+          disabled={filteredCart}
+          className="add-to-cart">
             <i className="bi bi-basket-fill"></i>
           </button>
           <button>
