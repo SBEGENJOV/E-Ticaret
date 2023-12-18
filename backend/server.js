@@ -4,6 +4,7 @@ const app = express();
 const mainRoute = require("./routes/index.js");
 const port = 5000;
 const dotenv = require("dotenv");
+const logger= require("morgan");
 
 dotenv.config();
 
@@ -16,8 +17,8 @@ const connect = async () => {
   }
 };
 //middleware
+app.use(logger("dev"));
 app.use(express.json());
-
 app.use("/api", mainRoute);
 
 app.listen(port, () => {
