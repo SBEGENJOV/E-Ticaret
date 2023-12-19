@@ -4,7 +4,6 @@ const ReviewSchema = mongoose.Schema({
   text: { type: String, required: true },
   rating: { type: Number, required: true },
   user: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },//ilişkili veri tabanı oluşturma şekli
-  user: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },//ilişkili veri tabanı oluşturma şekli
 });
 
 const ProductSchema = mongoose.Schema(
