@@ -1,11 +1,13 @@
-import { CartContext } from "../../../context/CartProvider";import { useContext } from "react";
-import "./Header.css"
+import { CartContext } from "../../../context/CartProvider";
+import { useContext } from "react";
+import "./Header.css";
 import PropTypes from "prop-types";
 import { Link, useLocation } from "react-router-dom";
 
-export default function Header({setIsSearchShow}) {
-  const {cartItems} = useContext(CartContext);
+export default function Header({ setIsSearchShow }) {
+  const { cartItems } = useContext(CartContext);
   const { pathname } = useLocation();
+  const user = localStorage.getItem("user");
   return (
     <header>
       <div className="global-notification">
@@ -218,9 +220,9 @@ export default function Header({setIsSearchShow}) {
                 >
                   <i className="bi bi-search"></i>
                 </button>
-                <a href="#">
+                {/* <a href="#">
                   <i className="bi bi-heart"></i>
-                </a>
+                </a> */}
                 <div className="header-cart">
                   <Link to={"/cart"} className="header-cart-link">
                     <i className="bi bi-bag"></i>
@@ -229,6 +231,22 @@ export default function Header({setIsSearchShow}) {
                     </span>
                   </Link>
                 </div>
+                {user && (
+                  <button
+                    onClick={() => {
+                      if (
+                        window.confirm(
+                          "Çıkış yapmak istediginize emin misiniz ?"
+                        )
+                      ) {
+                        localStorage.removeItem("user");
+                        window.location.href = "/";
+                      }
+                    }}
+                  >
+                    <i className="bi bi-box-arrow-right"></i>
+                  </button>
+                )}
               </div>
             </div>
           </div>
