@@ -1,39 +1,73 @@
-import { Table } from "antd";
+import { Table, message } from "antd";
+import { useCallback, useEffect, useState } from "react";
 
 const AdminUserPage = () => {
-  const dataSource = [
+  const [dataSource, setDataSource] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const apiUrl = import.meta.env.VITE_API_BASE_URL;
+  const columns = [
     {
-      key: "1",
-      name: "Mike",
-      age: 32,
-      address: "10 Downing Street",
+      title: "Avatar",
+      dataIndex: "avatar",
+      key: "avatar",
+      render: (imgSrc) => (
+        <img
+          style={{
+            width: "3rem",
+            height: "3rem",
+            borderRadius: "50%",
+          }}
+          src={imgSrc}
+          alt="Avatar"
+        />
+      ),
     },
     {
-      key: "2",
-      name: "John",
-      age: 42,
-      address: "10 Downing Street",
+      title: "Username",
+      dataIndex: "username",
+      key: "username",
+    },
+    {
+      title: "Email",
+      dataIndex: "email",
+      key: "email",
+    },
+    {
+      title: "Role",
+      dataIndex: "role",
+      key: "role",
     },
   ];
 
-  const columns = [
-    {
-      title: "Name",
-      dataIndex: "name",
-      key: "name",
-    },
-    {
-      title: "Age",
-      dataIndex: "age",
-      key: "age",
-    },
-    {
-      title: "Address",
-      dataIndex: "address",
-      key: "address",
-    },
-  ];
-  return <Table dataSource={dataSource} columns={columns} />;
+  const fetchUsers = useCallback(async () => {
+    setLoading(true);
+    try {
+      const response = await fetch(`${apiUrl}/api/users`);
+      if (response.ok) {
+        const data = await response.json();
+        setDataSource(data);
+      } else {
+        message.success("İşlem Başarısız");
+      }
+    } catch (error) {
+      console.log("Giriş hatası: ", error);
+    } finally {
+      setLoading(false);
+    }
+  }, [apiUrl]);
+
+  useEffect(() => {
+    fetchUsers();
+  }, [fetchUsers]);
+
+  return (
+    <Table
+      dataSource={dataSource}
+      columns={columns}
+      rowKey={(record) => record._id}
+      loading={loading}
+    />
+  );
 };
 
 export default AdminUserPage;
