@@ -1,9 +1,7 @@
-import ProductDetails from "../ProductDetails/ProductDetails";
+import ProductDetails from "../component/ProductDetails/ProductDetails";
 
 const ProductDetailsPage = () => {
-  return (
-      <ProductDetails />
-  );
+  return <ProductDetails />;
 };
 
 export default ProductDetailsPage;

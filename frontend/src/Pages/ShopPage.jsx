@@ -1,17 +1,17 @@
-import { Fragment } from 'react'
-import Category from "../Category/Category";
-import Product from "../Product/Product";
-import CampaignSingle from "../CampaignSingle/CampaignSingle";
+import { Fragment } from "react";
+import Category from "../component/Category/Category";
+import Product from "../component/Product/Product";
+import CampaignSingle from "../component/CampaignSingle/CampaignSingle";
 
 const ShopPage = () => {
   return (
     <Fragment>
-        <Category />
-        <Product />
-        <CampaignSingle />
-        <Product />
+      <Category />
+      <Product />
+      <CampaignSingle />
+      <Product />
     </Fragment>
-  )
-}
+  );
+};
 
-export default ShopPage
+export default ShopPage;

@@ -1,9 +1,7 @@
-import BlogDetails from "../BlogDetails/BlogDetails";
+import BlogDetails from "../component/BlogDetails/BlogDetails";
 
 const BlogDetailsPage = () => {
-  return (
-      <BlogDetails />
-  );
+  return <BlogDetails />;
 };
 
 export default BlogDetailsPage;
