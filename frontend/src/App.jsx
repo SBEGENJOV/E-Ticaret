@@ -9,6 +9,7 @@ import AuthPage from "./Pages/AuthPage";
 import CartPage from "./component/Cart/CartPage ";
 import Blogs from "./component/Blog/Blog";
 import AdminUserPage from "./Pages/Admin/AdminUserPage";
+import CategoryPage from "./Pages/admin/Categories/CategoryPage";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <Route path="/blog" element={<Blogs />} />
       <Route path="/admin/*">
         <Route path="users" element={<AdminUserPage />} />
+        <Route path="categories" element={<CategoryPage />} />
       </Route>
     </Routes>
   );
