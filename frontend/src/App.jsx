@@ -17,6 +17,7 @@ import ProductPage from "./Pages/admin/Products/ProductPage ";
 import UpdateProductPage from "./Pages/admin/Products/UpdateProductPage ";
 import CouponPage from "./Pages/admin/Coupon/CouponPage";
 import CreateCouponPage from "./Pages/admin/Coupon/CreateCouponPage";
+import UpdateCouponPage from "./Pages/admin/Coupon/UpdateCouponPage";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
         <Route path="products/update/:id" element={<UpdateProductPage />} />
         <Route path="coupons" element={<CouponPage />} />
         <Route path="coupons/create" element={<CreateCouponPage />} />
+        <Route path="coupons/update/:id" element={<UpdateCouponPage />} />
       </Route>
     </Routes>
   );
