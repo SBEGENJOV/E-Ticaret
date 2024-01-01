@@ -8,18 +8,17 @@ import Brands from "../component/Brands/Brands";
 import CampaignSingle from "../component/CampaignSingle/CampaignSingle";
 
 const HomePage = () => {
-    return (
-      <React.Fragment>
-        <Slider />
-        <Category />
-        <Product />
-        <Campaigns />
-        <Product />
-        <Blog />
-        <Brands />
-        <CampaignSingle />
-      </React.Fragment>
-    );
-  };
-  
-  export default HomePage;
+  return (
+    <React.Fragment>
+      <Slider />
+      <Category />
+      <Product />
+      <Campaigns />
+      <Blog />
+      <Brands />
+      <CampaignSingle />
+    </React.Fragment>
+  );
+};
+
+export default HomePage;

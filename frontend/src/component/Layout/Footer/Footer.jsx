@@ -182,7 +182,7 @@ export default function Footer() {
                 </p>
               </div>
               <a href="#">
-                <img src="public/img/footer/cards.png" alt="" />
+                <img src="/img/footer/cards.png" alt="" />
               </a>
               <div className="footer-menu">
                 <ul className="footer-menu-list">
