@@ -1,4 +1,4 @@
-import { Table, message } from "antd";
+import { Button, Popconfirm, Table, message } from "antd";
 import { useCallback, useEffect, useState } from "react";
 
 const AdminUserPage = () => {
@@ -37,6 +37,24 @@ const AdminUserPage = () => {
       dataIndex: "role",
       key: "role",
     },
+    {
+      title: "İşlemler",
+      dataIndex: "actions",
+      key: "actions",
+      render: (_, record) => (
+        <Popconfirm
+          title="Silme Alanı"
+          description="Silmek istediginize emin misiniz"
+          okText="Evet"
+          cancelText="Hayır"
+          onConfirm={() => deleteUser(record.email)}
+        >
+          <Button type="primary" danger>
+            Sil
+          </Button>
+        </Popconfirm>
+      ),
+    },
   ];
 
   const fetchUsers = useCallback(async () => {
@@ -55,6 +73,25 @@ const AdminUserPage = () => {
       setLoading(false);
     }
   }, [apiUrl]);
+
+  const deleteUser = async (userEmail) => {
+    setLoading(true);
+    try {
+      const response = await fetch(`${apiUrl}/api/users/${userEmail}`, {
+        method: "DELETE",
+      });
+      if (response.ok) {
+        message.success("Kullanıcı başarı ile silindi");
+        fetchUsers();
+      } else {
+        message.success("Silme Başarısız");
+      }
+    } catch (error) {
+      console.log("Silme işlemi hatalı: ", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
     fetchUsers();
