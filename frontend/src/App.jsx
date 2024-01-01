@@ -11,6 +11,7 @@ import Blogs from "./component/Blog/Blog";
 import AdminUserPage from "./Pages/Admin/AdminUserPage";
 import CategoryPage from "./Pages/admin/Categories/CategoryPage";
 import UpdateCategoryPage from "./Pages/admin/Categories/UpdateCategoryPage";
+import CreateCategoryPage from "./Pages/admin/Categories/CreateCategoryPage ";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
       <Route path="/admin/*">
         <Route path="users" element={<AdminUserPage />} />
         <Route path="categories" element={<CategoryPage />} />
+        <Route path="categories/create" element={<CreateCategoryPage />} />
         <Route path="categories/update/:id" element={<UpdateCategoryPage />} />
       </Route>
     </Routes>
