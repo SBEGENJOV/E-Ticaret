@@ -5,6 +5,7 @@ const Coupon = require("../models/Coupon.js");
 //Yeni bir Kupon oluşturma(Create)
 router.post("/", async (req, res) => {
   try {
+    const { code } = req.body;
     const couponName = await Coupon.findOne({ code });
     //   const couponName = await Coupon.findOne({ code:newCoupon.code});
     const newCoupon = new Coupon(req.body);
@@ -82,7 +83,6 @@ router.put("/:couponId", async (req, res) => {
     res.status(500).json({ error: "Server error." });
   }
 });
-
 
 //Kupon Silme(Delete)
 router.delete("/:couponId", async (req, res) => {

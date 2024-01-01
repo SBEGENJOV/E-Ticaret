@@ -13,7 +13,7 @@ const userRouter = require("./users.js");
 router.use("/categories", categoriRouter);
 router.use("/products", productRouter);
 router.use("/auth", authRouter);
-router.use("/coupon", couponRouter);
+router.use("/coupons", couponRouter);
 router.use("/users", userRouter);
 
 module.exports = router;
