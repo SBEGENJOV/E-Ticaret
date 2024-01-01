@@ -12,6 +12,7 @@ import AdminUserPage from "./Pages/Admin/AdminUserPage";
 import CategoryPage from "./Pages/admin/Categories/CategoryPage";
 import UpdateCategoryPage from "./Pages/admin/Categories/UpdateCategoryPage";
 import CreateCategoryPage from "./Pages/admin/Categories/CreateCategoryPage ";
+import CreateProductPage from "./Pages/admin/Products/CreateProductPage";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path="categories" element={<CategoryPage />} />
         <Route path="categories/create" element={<CreateCategoryPage />} />
         <Route path="categories/update/:id" element={<UpdateCategoryPage />} />
+        <Route path="products/create" element={<CreateProductPage />} />
       </Route>
     </Routes>
   );

@@ -166,7 +166,6 @@ const AdminLayout = ({ children }) => {
                 }}
               >
                 {children}
-                adadawd
               </div>
             </Content>
           </Layout>
