@@ -20,6 +20,7 @@ import CreateCouponPage from "./Pages/admin/Coupon/CreateCouponPage";
 import UpdateCouponPage from "./Pages/admin/Coupon/UpdateCouponPage";
 import Success from "./Pages/Success";
 import OrderPage from "./Pages/admin/OrderPage";
+import DashboardPage from "./Pages/admin/DashboardPage";
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
         <Route path="coupons/create" element={<CreateCouponPage />} />
         <Route path="coupons/update/:id" element={<UpdateCouponPage />} />
         <Route path="orders" element={<OrderPage />} />
+        <Route index element={<DashboardPage />} />
       </Route>
     </Routes>
   );
