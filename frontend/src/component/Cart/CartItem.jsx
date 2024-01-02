@@ -13,7 +13,7 @@ const CartItem = ({ cartItem }) => {
         <i
           className="bi bi-x delete-cart"
           onClick={() => {
-            removeFromCart(cartItem.id);
+            removeFromCart(cartItem._id);
           }}
         ></i>
       </td>
