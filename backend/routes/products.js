@@ -13,7 +13,6 @@ router.post("/", async (req, res) => {
   }
 });
 
-
 // Tüm ürünleri getirme (Read- All)
 router.get("/", async (req, res) => {
   try {
@@ -55,11 +54,9 @@ router.put("/:productId", async (req, res) => {
       return res.status(404).json({ error: "Product not found." });
     }
 
-    const updatedProduct = await Product.findByIdAndUpdate(
-      productId,
-      updates,
-      { new: true }
-    );
+    const updatedProduct = await Product.findByIdAndUpdate(productId, updates, {
+      new: true,
+    });
     console.log(updatedProduct);
     res.status(200).json(updatedProduct);
   } catch (error) {
@@ -67,7 +64,6 @@ router.put("/:productId", async (req, res) => {
     res.status(500).json({ error: "Server error." });
   }
 });
-
 
 //Ürün Silme(Delete)
 router.delete("/:productId", async (req, res) => {
@@ -85,4 +81,22 @@ router.delete("/:productId", async (req, res) => {
     res.status(500).json({ error: "Server error." });
   }
 });
+
+//Ürünleri isime göre arama
+router.get("/search/:productName", async (req, res) => {
+  try {
+    const productName = req.params.productName;
+    const product = await Product.find({
+      name: {
+        $regex: productName,
+        $options: "i",
+      },
+    });
+    res.status(200).json({ product });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "server error" });
+  }
+});
+
 module.exports = router;
