@@ -4,7 +4,9 @@ import { CartContext } from "../../context/CartProvider";
 
 const CartCoupon = () => {
   const [couponCode, setCouponCode] = useState("");
+
   const { cartItems, setCartItems } = useContext(CartContext);
+  const { couponDurum, setCouponDurum } = useContext(CartContext);
   const apiUrl = import.meta.env.VITE_API_BASE_URL;
 
   const applyCoupon = async () => {
@@ -27,7 +29,7 @@ const CartCoupon = () => {
       });
 
       setCartItems(updatedCartItems);
-
+      setCouponDurum(true);
       message.success(`${couponCode} kupon kodu başarıyla uygulandı.`);
     } catch (error) {
       console.log(error);
@@ -44,9 +46,15 @@ const CartCoupon = () => {
           onChange={(e) => setCouponCode(e.target.value)}
           value={couponCode}
         />
-        <button className="btn" type="button" onClick={applyCoupon}>
-          Apply Coupon
-        </button>
+        {couponDurum ? (
+          <button disabled className="btn" type="button" onClick={applyCoupon}>
+            Apply Coupon
+          </button>
+        ) : (
+          <button className="btn" type="button" onClick={applyCoupon}>
+            Apply Coupon
+          </button>
+        )}
       </div>
       <div className="update-cart">
         <button className="btn">Update Cart</button>

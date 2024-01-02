@@ -24,7 +24,7 @@ const CartProvider = ({ children }) => {
       },
     ]);
   };
-
+  const [couponDurum, setCouponDurum] = useState(false);
   const removeFromCart = (itemId) => {
     const filteredCartItems = cartItems.filter((cartItem) => {
       return cartItem._id !== itemId;
@@ -36,6 +36,8 @@ const CartProvider = ({ children }) => {
     <CartContext.Provider
       value={{
         cartItems,
+        couponDurum,
+        setCouponDurum,
         setCartItems,
         addToCart,
         removeFromCart,
