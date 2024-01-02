@@ -17,13 +17,16 @@ const ReviewsForm = ({ singleProduct, setSingleProduct }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (rating === 0) {
+    return  message.warning("Bir puan seçiniz");
+    }
     const formData = {
       reviews: [
         ...singleProduct.reviews,
         {
           text: review,
           rating: parseInt(rating),
-          user: user.id  || user._id,
+          user: user.id || user._id,
         },
       ],
     };
@@ -118,6 +121,7 @@ const ReviewsForm = ({ singleProduct, setSingleProduct }) => {
           <span className="required">*</span>
         </label>
         <textarea
+          required
           id="comment"
           cols="50"
           rows="10"

@@ -16,7 +16,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch( `${apiUrl}/api/auth/login`, {
+      const response = await fetch(`${apiUrl}/api/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -49,7 +49,12 @@ const Login = () => {
             <span>
               Username or email address <span className="required">*</span>
             </span>
-            <input type="text" name="email" onChange={handleInputChange} />
+            <input
+              type="text"
+              name="email"
+              required
+              onChange={handleInputChange}
+            />
           </label>
         </div>
         <div>
@@ -58,6 +63,7 @@ const Login = () => {
               Password <span className="required">*</span>
             </span>
             <input
+              required
               name="password"
               type="password"
               onChange={handleInputChange}
