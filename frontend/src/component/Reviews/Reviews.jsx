@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./Reviews.css";
 import ReviewsForm from "./ReviewsForm";
 import ReviewsItem from "./ReviewsItem";
