@@ -11,6 +11,7 @@ import Blogs from "./component/Blog/Blog";
 import AdminUserPage from "./Pages/Admin/AdminUserPage";
 import CategoryPage from "./Pages/admin/Categories/CategoryPage";
 import UpdateCategoryPage from "./Pages/admin/Categories/UpdateCategoryPage";
+import UpdateLogoPage from "./Pages/admin/Logo/UpdateLogoPage";
 import CreateCategoryPage from "./Pages/admin/Categories/CreateCategoryPage ";
 import CreateProductPage from "./Pages/admin/Products/CreateProductPage";
 import ProductPage from "./Pages/admin/Products/ProductPage ";
@@ -21,6 +22,8 @@ import UpdateCouponPage from "./Pages/admin/Coupon/UpdateCouponPage";
 import Success from "./Pages/Success";
 import OrderPage from "./Pages/admin/OrderPage";
 import DashboardPage from "./Pages/admin/DashboardPage";
+import LogoPage from "./Pages/admin/Logo/LogoPage";
+import CreateLogoPage from "./Pages/admin/Logo/CreateLogoPage";
 
 function App() {
   return (
@@ -46,6 +49,9 @@ function App() {
         <Route path="coupons/create" element={<CreateCouponPage />} />
         <Route path="coupons/update/:id" element={<UpdateCouponPage />} />
         <Route path="orders" element={<OrderPage />} />
+        <Route path="logo" element={<LogoPage />} />
+        <Route path="logo/update/:id" element={<UpdateLogoPage />} />
+        <Route path="logo/create" element={<CreateLogoPage   />} />
         <Route index element={<DashboardPage />} />
       </Route>
     </Routes>

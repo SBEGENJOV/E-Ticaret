@@ -20,6 +20,6 @@ router.use("/auth", authRouter);
 router.use("/coupons", couponRouter);
 router.use("/users", userRouter);
 router.use("/payment", paymentRoute);
-router.use("/logo", upload.single("file"), logoRoute);
+router.use("/logo", upload.single("File"), logoRoute);
 
 module.exports = router;

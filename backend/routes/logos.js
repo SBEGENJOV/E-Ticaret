@@ -4,10 +4,10 @@ const Logo = require("../models/Logo.js");
 //Yeni bir Logo oluşturma(Create)
 router.post("/", async (req, res) => {
   try {
-    const { name } = req.body;
+    const { name, img } = req.body;
     const post = await Logo.create({
       name,
-      img: req?.file?.path,
+      img,
     });
     console.log(post);
     res.status(201).json(post);
@@ -65,7 +65,7 @@ router.put("/:logoId", async (req, res) => {
     res.status(500).json({ error: "Server error." });
   }
 });
-//Kategori Silme(Delete)
+//Logo Silme(Delete)
 router.delete("/:logoId", async (req, res) => {
   try {
     const logoId = req.params.logoId;

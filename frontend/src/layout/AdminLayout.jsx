@@ -8,6 +8,7 @@ import {
   DashboardOutlined,
   ShoppingCartOutlined,
   AppstoreOutlined,
+  StarOutlined,
 } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 
@@ -121,6 +122,30 @@ const AdminLayout = ({ children }) => {
       onClick: () => {
         navigate(`/admin/orders`);
       },
+    },
+    {
+      key: "14",
+      icon: <StarOutlined />,
+      label: "Logo",
+      path: "/logo",
+      children: [
+        {
+          key: "15",
+          label: "Logo Listesi",
+          path: "/admin/logo",
+          onClick: () => {
+            navigate(`/admin/logo`);
+          },
+        },
+        {
+          key: "16",
+          label: "Yeni Logo Oluştur",
+          path: "/admin/logo/create",
+          onClick: () => {
+            navigate("/admin/logo/create");
+          },
+        },
+      ],
     },
     {
       key: "13",
