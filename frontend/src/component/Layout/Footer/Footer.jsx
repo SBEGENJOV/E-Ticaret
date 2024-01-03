@@ -1,71 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Policy from "../Policy/Policy";
 import "./Footer.css";
+import { message } from "antd";
 
 export default function Footer() {
+  const [categories, setCategories] = useState([]);
+  const apiUrl = import.meta.env.VITE_API_BASE_URL;
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await fetch(`${apiUrl}/api/categories`);
+
+        if (response.ok) {
+          const data = await response.json();
+          setCategories(data);
+        } else {
+          message.error("Veri getirme başarısız.");
+        }
+      } catch (error) {
+        console.log("Veri hatası:", error);
+      }
+    };
+    fetchCategories();
+  }, [apiUrl]);
   return (
     <React.Fragment>
       <Policy />
       <footer className="footer">
-        <div className="subscribe-row">
-          <div className="container">
-            <div className="footer-row-wrapper">
-              <div className="footer-subscribe-wrapper">
-                <div className="footer-subscribe">
-                  <div className="footer-subscribe-top">
-                    <h3 className="subscribe-title">
-                      Get our emails for info on new items, sales and more.
-                    </h3>
-                    <p className="subscribe-desc">
-                      We`ll email you a voucher worth $10 off your first order
-                      over $50.
-                    </p>
-                  </div>
-                  <div className="footer-subscribe-bottom">
-                    <form>
-                      <input
-                        type="text"
-                        placeholder="Enter your email address."
-                      />
-                      <button className="btn">Subscribe</button>
-                    </form>
-                    <p className="privacy-text">
-                      By subscribing you agree to our{" "}
-                      <a href="#">
-                        Terms & Conditions and Privacy & Cookies Policy.
-                      </a>
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="footer-contact-wrapper">
-                <div className="footer-contact-top">
-                  <h3 className="contact-title">
-                    Need help? <br />
-                    (+90) 123 456 78 90
-                  </h3>
-                  <p className="contact-desc">
-                    We are available 8:00am – 7:00pm
-                  </p>
-                </div>
-                <div className="footer-contact-bottom">
-                  <div className="download-app">
-                    <a href="#">
-                      <img src="/img/footer/app-store.png" alt="" />
-                    </a>
-                    <a href="#">
-                      <img src="/img/footer/google-play.png" alt="" />
-                    </a>
-                  </div>
-                  <p className="privacy-text">
-                    <strong>Shopping App:</strong> Try our View in Your Room
-                    feature, manage registries and save payment info.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
         <div className="widgets-row">
           <div className="container">
             <div className="footer-widgets">
@@ -77,96 +39,89 @@ export default function Footer() {
                 </div>
                 <div className="footer-desc">
                   <p>
-                    {" "}
-                    Quis ipsum suspendisse ultrices gravida. Risus commodo
-                    viverra maecenas accumsan lacus vel facilisis in termapol.
+                    Türkiye’nin önemli online alışveriş adreslerinden biri olan
+                    S_BEGENJOV, 2020 yılında modayı herkes için ulaşılabilir
+                    kılmak amacıyla kuruldu. O günden bugüne giyimden aksesuara,
+                    ayakkabıdan kozmetiğe kadar pek çok ürünle beğeni kazanmaya
+                    devam ediyor. S_BEGENJOV hem farklı zevklere hem de
+                    bütçelere hitap eder.
                   </p>
                 </div>
                 <div className="footer-contact">
                   <p>
-                    <a href="tel:555 555 55 55">(+800) 1234 5678 90</a> –{" "}
-                    <a href="mailto:info@example.com">info@example.com</a>
+                    <a href="tel:555 555 55 55">(+553) 555 55 55</a> –{" "}
+                    <a href="mailto:info@example.com">info@gmail.com</a>
                   </p>
                 </div>
               </div>
               <div className="widget-nav-menu">
-                <h4>Information</h4>
+                <h4>Bilgiler</h4>
                 <ul className="menu-list">
                   <li>
-                    <a href="#">About Us</a>
+                    <a href="#">Hakkımızda</a>
                   </li>
                   <li>
-                    <a href="#">Privacy Policy</a>
+                    <a href="#">Kurallar</a>
                   </li>
                   <li>
-                    <a href="#">Returns Policy</a>
+                    <a href="#">Iade Kuralları</a>
                   </li>
                   <li>
-                    <a href="#">Shipping Policy</a>
+                    <a href="#">Satış Kuralları</a>
                   </li>
                   <li>
-                    <a href="#">Dropshipping</a>
+                    <a href="#">Parça Satış</a>
                   </li>
                 </ul>
               </div>
               <div className="widget-nav-menu">
-                <h4>Account</h4>
+                <h4>Hesap</h4>
                 <ul className="menu-list">
                   <li>
-                    <a href="#">Dashboard</a>
+                    <a href="#">Hesap Bilgileri</a>
                   </li>
                   <li>
-                    <a href="#">My Orders</a>
+                    <a href="#">Siparişlerim</a>
                   </li>
                   <li>
-                    <a href="#">My Wishlist</a>
+                    <a href="#">Ürünlerim</a>
                   </li>
                   <li>
-                    <a href="#">Account details</a>
+                    <a href="#">Hesap Detayları</a>
                   </li>
                   <li>
-                    <a href="#">Track My Orders</a>
+                    <a href="#">Siparişleri Tekrarla</a>
                   </li>
                 </ul>
               </div>
               <div className="widget-nav-menu">
-                <h4>Shop</h4>
+                <h4>Alışveriş</h4>
                 <ul className="menu-list">
                   <li>
-                    <a href="#">Affiliate</a>
+                    <a href="#">Öne Çıkanlar</a>
                   </li>
                   <li>
-                    <a href="#">Bestsellers</a>
+                    <a href="#">En İyiler</a>
                   </li>
                   <li>
-                    <a href="#">Discount</a>
+                    <a href="#">İndirimliler</a>
                   </li>
                   <li>
-                    <a href="#">Latest Products</a>
+                    <a href="#">Son Ürünler</a>
                   </li>
                   <li>
-                    <a href="#">Sale Products</a>
+                    <a href="#">Satılan Ürünler</a>
                   </li>
                 </ul>
               </div>
               <div className="widget-nav-menu">
-                <h4>Categories</h4>
+                <h4>Kategori</h4>
                 <ul className="menu-list">
-                  <li>
-                    <a href="#">Women</a>
-                  </li>
-                  <li>
-                    <a href="#">Men</a>
-                  </li>
-                  <li>
-                    <a href="#">Bags</a>
-                  </li>
-                  <li>
-                    <a href="#">Outerwear</a>
-                  </li>
-                  <li>
-                    <a href="#">Shoes</a>
-                  </li>
+                  {categories.map((category) => (
+                    <li key={category._id}>
+                      <p>{category.name}</p>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -178,7 +133,7 @@ export default function Footer() {
               <div className="site-copyright">
                 <p>
                   Copyright 2022 © E-Commerce Theme. All right reserved. Powered
-                  by Emin Basbayan.
+                  by Seyitmuhammet BEGENJOV.
                 </p>
               </div>
               <a href="#">
@@ -187,13 +142,13 @@ export default function Footer() {
               <div className="footer-menu">
                 <ul className="footer-menu-list">
                   <li className="list-item">
-                    <a href="#">Privacy Policy</a>
+                    <a href="#">Kurallar</a>
                   </li>
                   <li className="list-item">
-                    <a href="#">Terms and Conditions</a>
+                    <a href="#">Sözleşmeler</a>
                   </li>
                   <li className="list-item">
-                    <a href="#">Returns Policy</a>
+                    <a href="#">KVKK Politikası</a>
                   </li>
                 </ul>
               </div>

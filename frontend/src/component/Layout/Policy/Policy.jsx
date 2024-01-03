@@ -8,29 +8,29 @@ export default function Policy() {
         <li className="policy-item">
           <i className="bi bi-truck"></i>
           <div className="policy-texts">
-            <strong>FREE DELIVERY</strong>
-            <span>From $59.89</span>
+            <strong>Ücretsiz Kargo</strong>
+            <span>100 TL üzeri</span>
           </div>
         </li>
         <li className="policy-item">
           <i className="bi bi-headset"></i>
           <div className="policy-texts">
-            <strong>SUPPORT 24/7</strong>
-            <span>Online 24 hours</span>
+            <strong>Müşteri Hizmetleri 24/7</strong>
+            <span>Online 24 Saat</span>
           </div>
         </li>
         <li className="policy-item">
           <i className="bi bi-arrow-clockwise"></i>
           <div className="policy-texts">
-            <strong> 30 DAYS RETURN</strong>
-            <span>Simply return it within 30 days</span>
+            <strong> 30 Gün Iade</strong>
+            <span>30 gün içinde kolay iade</span>
           </div>
         </li>
         <li className="policy-item">
           <i className="bi bi-credit-card"></i>
           <div className="policy-texts">
-            <strong> PAYMENT METHOD</strong>
-            <span>Secure Payment</span>
+            <strong> Ödeme Yöntemi</strong>
+            <span>Güvenilir Ödeme</span>
           </div>
         </li>
       </ul>
@@ -38,3 +38,4 @@ export default function Policy() {
   </section>
   )
 }
+ 

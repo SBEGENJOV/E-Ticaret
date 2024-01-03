@@ -28,20 +28,21 @@ const Reviews = ({ active, singleProduct, setSingleProduct }) => {
     fetchUsers();
   }, [apiUrl]);
 
-  singleProduct.reviews.forEach((review) => {
-    const matchingUsers = users?.filter((user) => user._id === review.user);
+  singleProduct &&
+    singleProduct.reviews.forEach((review) => {
+      const matchingUsers = users?.filter((user) => user._id === review.user);
 
-    matchingUsers.forEach((matchingUser) => {
-      thisReview.push({
-        review: review,
-        user: matchingUser,
+      matchingUsers.forEach((matchingUser) => {
+        thisReview.push({
+          review: review,
+          user: matchingUser,
+        });
       });
     });
-  });
 
   return (
     <div className={`tab-panel-reviews ${active}`}>
-      {singleProduct.reviews.length > 0 ? (
+      {singleProduct && singleProduct.reviews.length > 0 ? (
         <>
           <h3>2 reviews for Basic Colored Sweatpants With Elastic Hems</h3>
           <div className="comments">
