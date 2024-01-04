@@ -22,6 +22,6 @@ router.use("/coupons", couponRouter);
 router.use("/users", userRouter);
 router.use("/payment", paymentRoute);
 router.use("/logo", upload.single("File"), logoRoute);
-router.use("/blog", Blog);
+router.use("/blog", blogRoute);
 
 module.exports = router;

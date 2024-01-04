@@ -11,7 +11,6 @@ import Blogs from "./component/Blog/Blog";
 import AdminUserPage from "./Pages/Admin/AdminUserPage";
 import CategoryPage from "./Pages/admin/Categories/CategoryPage";
 import UpdateCategoryPage from "./Pages/admin/Categories/UpdateCategoryPage";
-import UpdateLogoPage from "./Pages/admin/Logo/UpdateLogoPage";
 import CreateCategoryPage from "./Pages/admin/Categories/CreateCategoryPage ";
 import CreateProductPage from "./Pages/admin/Products/CreateProductPage";
 import ProductPage from "./Pages/admin/Products/ProductPage ";
@@ -23,7 +22,11 @@ import Success from "./Pages/Success";
 import OrderPage from "./Pages/admin/OrderPage";
 import DashboardPage from "./Pages/admin/DashboardPage";
 import LogoPage from "./Pages/admin/Logo/LogoPage";
+import UpdateLogoPage from "./Pages/admin/Logo/UpdateLogoPage";
 import CreateLogoPage from "./Pages/admin/Logo/CreateLogoPage";
+import BlogPage from "./Pages/admin/Blog/BlogPage";
+import CreateBlogPage from "./Pages/admin/Blog/CreateBlogPage";
+import UpdateBlogPage from "./Pages/admin/Blog/UpdateBlogPage";
 
 function App() {
   return (
@@ -51,7 +54,10 @@ function App() {
         <Route path="orders" element={<OrderPage />} />
         <Route path="logo" element={<LogoPage />} />
         <Route path="logo/update/:id" element={<UpdateLogoPage />} />
-        <Route path="logo/create" element={<CreateLogoPage   />} />
+        <Route path="logo/create" element={<CreateLogoPage />} />
+        <Route path="blog" element={<BlogPage />} />
+        <Route path="blog/create" element={<CreateBlogPage />} />
+        <Route path="blog/update/:id" element={<UpdateBlogPage />} />
         <Route index element={<DashboardPage />} />
       </Route>
     </Routes>

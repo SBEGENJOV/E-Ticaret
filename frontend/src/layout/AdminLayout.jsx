@@ -9,6 +9,7 @@ import {
   ShoppingCartOutlined,
   AppstoreOutlined,
   StarOutlined,
+  BookOutlined,
 } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 
@@ -122,6 +123,30 @@ const AdminLayout = ({ children }) => {
       onClick: () => {
         navigate(`/admin/orders`);
       },
+    },
+    {
+      key: "17",
+      icon: <BookOutlined />,
+      label: "Blog",
+      path: "/blog",
+      children: [
+        {
+          key: "18",
+          label: "Blog Listesi",
+          path: "/admin/blog",
+          onClick: () => {
+            navigate(`/admin/blog`);
+          },
+        },
+        {
+          key: "19",
+          label: "Yeni Blog Oluştur",
+          path: "/admin/blog/create",
+          onClick: () => {
+            navigate("/admin/blog/create");
+          },
+        },
+      ],
     },
     {
       key: "14",
