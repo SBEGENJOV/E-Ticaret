@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Policy from "../Policy/Policy";
 import "./Footer.css";
 import { message } from "antd";
+import { LogoContext } from "../../../context/LogoProvidor";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   const [categories, setCategories] = useState([]);
   const apiUrl = import.meta.env.VITE_API_BASE_URL;
-
+  const { logoVeri } = useContext(LogoContext);
   useEffect(() => {
     const fetchCategories = async () => {
       try {
@@ -33,9 +35,13 @@ export default function Footer() {
             <div className="footer-widgets">
               <div className="brand-info">
                 <div className="footer-logo">
-                  <a href="index.html" className="logo">
-                    LOGO
-                  </a>
+                  <Link to={"/"} className="logo">
+                    <img
+                      src={logoVeri}
+                      style={{ width: "80px", height: "auto" }}
+                      alt="Logo"
+                    />
+                  </Link>
                 </div>
                 <div className="footer-desc">
                   <p>

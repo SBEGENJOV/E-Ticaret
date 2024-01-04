@@ -3,11 +3,14 @@ import { useContext } from "react";
 import "./Header.css";
 import PropTypes from "prop-types";
 import { Link, useLocation } from "react-router-dom";
+import { LogoContext } from "../../../context/LogoProvidor";
 
 export default function Header({ setIsSearchShow }) {
   const { cartItems } = useContext(CartContext);
+  const { logoVeri } = useContext(LogoContext);
   const { pathname } = useLocation();
   const user = localStorage.getItem("user");
+  console.log(logoVeri);
   return (
     <header>
       <div className="global-notification">
@@ -27,7 +30,11 @@ export default function Header({ setIsSearchShow }) {
             </div>
             <div className="header-left">
               <Link to={"/"} className="logo">
-                LOGO
+                <img
+                  src={logoVeri}
+                  style={{ width: "80px", height: "auto" }}
+                  alt="Logo"
+                />
               </Link>
             </div>
             <div className="header-center" id="sidebar">

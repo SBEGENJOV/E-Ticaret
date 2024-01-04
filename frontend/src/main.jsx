@@ -7,14 +7,17 @@ import "./index.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ScrollToTop from "./ScrollToTop";
+import LogoContext from "./context/LogoProvidor.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <ScrollToTop />
     <CartProvider>
-      <Layout>
-        <App />
-      </Layout>
+      <LogoContext>
+        <Layout>
+          <App />
+        </Layout>
+      </LogoContext>
     </CartProvider>
   </BrowserRouter>
 );
