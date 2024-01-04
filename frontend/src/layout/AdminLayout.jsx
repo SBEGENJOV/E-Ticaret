@@ -10,6 +10,7 @@ import {
   AppstoreOutlined,
   StarOutlined,
   BookOutlined,
+  ContactsOutlined,
 } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 
@@ -171,6 +172,14 @@ const AdminLayout = ({ children }) => {
           },
         },
       ],
+    },
+    {
+      key: "20",
+      icon: <ContactsOutlined />,
+      label: "Sorular",
+      onClick: () => {
+        navigate("/admin/contact");
+      },
     },
     {
       key: "13",

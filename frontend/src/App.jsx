@@ -27,6 +27,7 @@ import CreateLogoPage from "./Pages/admin/Logo/CreateLogoPage";
 import BlogPage from "./Pages/admin/Blog/BlogPage";
 import CreateBlogPage from "./Pages/admin/Blog/CreateBlogPage";
 import UpdateBlogPage from "./Pages/admin/Blog/UpdateBlogPage";
+import ContactAdmin from "./Pages/admin/Contact/ContactPage";
 
 function App() {
   return (
@@ -58,6 +59,7 @@ function App() {
         <Route path="blog" element={<BlogPage />} />
         <Route path="blog/create" element={<CreateBlogPage />} />
         <Route path="blog/update/:id" element={<UpdateBlogPage />} />
+        <Route path="contact" element={<ContactAdmin />} />
         <Route index element={<DashboardPage />} />
       </Route>
     </Routes>
