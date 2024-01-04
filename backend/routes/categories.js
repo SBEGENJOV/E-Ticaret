@@ -4,11 +4,8 @@ const Category = require("../models/Category.js");
 //Yeni bir kategori oluşturma(Create)
 router.post("/", async (req, res) => {
   try {
-    const { name } = req.body;
-    const post = await Post.create({
-      name,
-      img: req?.file?.path,
-    });
+    const newCategory = new Category(req.body);
+    await newCategory.save();
     res.status(201).json(newCategory);
   } catch (error) {
     console.log(error);
