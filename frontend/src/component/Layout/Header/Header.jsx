@@ -10,7 +10,6 @@ export default function Header({ setIsSearchShow }) {
   const { logoVeri } = useContext(LogoContext);
   const { pathname } = useLocation();
   const user = localStorage.getItem("user");
-  console.log(logoVeri);
   return (
     <header>
       <div className="global-notification">

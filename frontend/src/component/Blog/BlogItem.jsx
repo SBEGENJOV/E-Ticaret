@@ -1,20 +1,27 @@
-import "./BlogItem.css"
+import "./BlogItem.css";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
-const BlogItem = () => {
+const BlogItem = ({ blog }) => {
+  const options = { year: "numeric", month: "long", day: "numeric" };
+  const formattedDate = new Date(blog.createdAt).toLocaleDateString(
+    "tr-TR",
+    options
+  );
   return (
     <li className="blog-item">
       <a href="#" className="blog-image">
-        <img src="/img/blogs/blog1.jpg" alt="" />
+        <img src={blog.img} alt="" />
       </a>
       <div className="blog-info">
         <div className="blog-info-top">
-          <span>25 Feb, 2021 </span>-<span>0 Comments</span>
+          <time>{formattedDate}</time>
         </div>
         <div className="blog-info-center">
-          <a href="#">Aliquam hendrerit mi metus</a>
+          <a href="#">{blog.title}</a>
         </div>
         <div className="blog-info-bottom">
-          <a href="#">Read More</a>
+          <Link to={`blog/${blog._id}`}>Devamı İçin Tıkla</Link>
         </div>
       </div>
     </li>
@@ -22,3 +29,7 @@ const BlogItem = () => {
 };
 
 export default BlogItem;
+
+BlogItem.propTypes = {
+  blog: PropTypes.object,
+};

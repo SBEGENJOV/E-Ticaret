@@ -8,8 +8,7 @@ const ShopPage = () => {
     <Fragment>
       <Category />
       <Product />
-      <CampaignSingle />
-      <Product />
+      <CampaignSingle />  
     </Fragment>
   );
 };
