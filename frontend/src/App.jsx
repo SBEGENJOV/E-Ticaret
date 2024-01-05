@@ -24,12 +24,14 @@ import DashboardPage from "./Pages/admin/DashboardPage";
 import LogoPage from "./Pages/admin/Logo/LogoPage";
 import UpdateLogoPage from "./Pages/admin/Logo/UpdateLogoPage";
 import CreateLogoPage from "./Pages/admin/Logo/CreateLogoPage";
+import SliderPage from "./Pages/admin/Slider/SliderPage";
 import BlogPage from "./Pages/admin/Blog/BlogPage";
 import CreateBlogPage from "./Pages/admin/Blog/CreateBlogPage";
 import UpdateBlogPage from "./Pages/admin/Blog/UpdateBlogPage";
 import ContactAdmin from "./Pages/admin/Contact/ContactPage";
 import UserPage from "./component/Auth/UserPage";
 import ProductCategory from "./component/Product/ProductCategory";
+import CreateSliderPage from "./Pages/admin/Slider/CreateSliderPage";
 
 function App() {
   return (
@@ -60,6 +62,8 @@ function App() {
         <Route path="logo" element={<LogoPage />} />
         <Route path="logo/update/:id" element={<UpdateLogoPage />} />
         <Route path="logo/create" element={<CreateLogoPage />} />
+        <Route path="slider" element={<SliderPage />} />
+        <Route path="slider/create" element={<CreateSliderPage />} />
         <Route path="blog" element={<BlogPage />} />
         <Route path="blog/create" element={<CreateBlogPage />} />
         <Route path="blog/update/:id" element={<UpdateBlogPage />} />

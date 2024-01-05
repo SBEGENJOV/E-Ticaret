@@ -182,6 +182,30 @@ const AdminLayout = ({ children }) => {
       },
     },
     {
+      key: "21",
+      icon: <StarOutlined />,
+      label: "Slider",
+      path: "/slider",
+      children: [
+        {
+          key: "22",
+          label: "Slider Listesi",
+          path: "/admin/slider",
+          onClick: () => {
+            navigate(`/admin/slider`);
+          },
+        },
+        {
+          key: "23",
+          label: "Yeni Slider Oluştur",
+          path: "/admin/slider/create",
+          onClick: () => {
+            navigate("/admin/slider/create");
+          },
+        },
+      ],
+    },
+    {
       key: "13",
       icon: <RollbackOutlined />,
       label: "Ana Sayfaya Git",

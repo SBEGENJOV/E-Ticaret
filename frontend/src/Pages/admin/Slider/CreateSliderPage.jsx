@@ -1,4 +1,4 @@
-import { Button, Form, Input, Spin, message } from "antd";
+import { Button, Checkbox, Form, Input, Select, Spin, message } from "antd";
 import { useState } from "react";
 
 const CreateSliderPage = () => {
@@ -21,7 +21,7 @@ const CreateSliderPage = () => {
         message.success("Slider başarıyla oluşturuldu.");
         form.resetFields();
       } else {
-        message.error("slider oluşturulurken bir hata oluştu.");
+        message.error("Slider oluşturulurken bir hata oluştu.");
       }
     } catch (error) {
       console.log("Slider güncelleme hatası:", error);
@@ -29,17 +29,27 @@ const CreateSliderPage = () => {
       setLoading(false);
     }
   };
+  const options = [
+    {
+      value: true,
+      label: "Aktif",
+    },
+    {
+      value: false,
+      label: "Aktif Degil",
+    },
+  ];
 
   return (
     <Spin spinning={loading}>
       <Form name="basic" layout="vertical" onFinish={onFinish} form={form}>
         <Form.Item
-          label="Kategori İsmi"
+          label="Slider İsmi"
           name="name"
           rules={[
             {
               required: true,
-              message: "Lütfen kategori adını girin!",
+              message: "Lütfen Slider adını girin!",
             },
           ]}
         >
@@ -47,7 +57,7 @@ const CreateSliderPage = () => {
         </Form.Item>
 
         <Form.Item
-          label="Kategori Görseli (Link)"
+          label="Slider Görseli (Link)"
           name="img"
           rules={[
             {
@@ -57,6 +67,23 @@ const CreateSliderPage = () => {
           ]}
         >
           <Input />
+        </Form.Item>
+        <Form.Item
+          label="Slider Durum Seç"
+          name="isActive"
+          rules={[
+            {
+              required: false,
+            },
+          ]}
+        >
+          <Select>
+            {options.map((options) => (
+              <Select.Option value={options.value}>
+                {options.label}
+              </Select.Option>
+            ))}
+          </Select>
         </Form.Item>
 
         <Button type="primary" htmlType="submit">
