@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import "./userPage.css"
 
 
 const UserPage = () => {
@@ -26,14 +27,14 @@ const UserPage = () => {
   }, [fetchUsers]);
   return (
     <>
-      <main className="userMain">
-        <form>
+      <div className="userMain">
+        <form className="userPageForm">
           <div className="input-group">
             <label>Avatarınız:</label>
             <br></br>
             <img
               src={dataSource.avatar}
-              style={{ width: "15rem", height: "15rem", borderRadius: "50%" }}
+              style={{marginLeft:"4.3rem", width: "10rem", height: "10rem", borderRadius: "50%" }}
             ></img>
           </div>
           <div className="input-group">
@@ -67,7 +68,7 @@ const UserPage = () => {
             />
           </div>
         </form>
-      </main>
+      </div>
     </>
   );
 };
