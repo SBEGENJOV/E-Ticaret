@@ -14,6 +14,7 @@ const paymentRoute = require("./payment.js");
 const logoRoute = require("./logos.js");
 const blogRoute = require("./blog.js");
 const contactRoute = require("./contact.js");
+const sliderRoute = require("./slider.js");
 
 //Her rotayı ilgili yol altında kullanıyoruz.
 router.use("/categories", categoriRouter);
@@ -25,5 +26,6 @@ router.use("/payment", paymentRoute);
 router.use("/logo", upload.single("File"), logoRoute);
 router.use("/blog", blogRoute);
 router.use("/contact", contactRoute);
+router.use("/slider", sliderRoute);
 
 module.exports = router;
