@@ -12,15 +12,15 @@ export default function Header({ setIsSearchShow }) {
   const user = localStorage.getItem("user");
   return (
     <header>
-      <div className="global-notification">
-        <div className="container">
-          <p>
-            SUMMER SALE FOR ALL SWIM SUITS AND FREE EXPRESS INTERNATIONAL
-            DELIVERY - OFF 50%!
-            <a href="shop.html"> SHOP NOW</a>
-          </p>
-        </div>
-      </div>
+      {/* //   <div className="global-notification">
+    //     <div className="container">
+    //       <p>
+    //         SUMMER SALE FOR ALL SWIM SUITS AND FREE EXPRESS INTERNATIONAL
+    //         DELIVERY - OFF 50%!
+    //         <a href="shop.html"> SHOP NOW</a>
+    //       </p>
+    //     </div>
+    //   </div> */}
       <div className="header-row">
         <div className="container">
           <div className="header-wrapper">
@@ -217,9 +217,15 @@ export default function Header({ setIsSearchShow }) {
             </div>
             <div className="header-right">
               <div className="header-right-links">
-                <Link to={"/auth"} className="header-account">
-                  <i className="bi bi-person"></i>
-                </Link>
+                {user ? (
+                  <Link to={"/user"} className="header-account">
+                    <i className="bi bi-person"></i>
+                  </Link>
+                ) : (
+                  <Link to={"/auth"} className="header-account">
+                    <i className="bi bi-person"></i>
+                  </Link>
+                )}
                 <button
                   className="search-button"
                   onClick={() => setIsSearchShow(true)}
@@ -246,6 +252,7 @@ export default function Header({ setIsSearchShow }) {
                         )
                       ) {
                         localStorage.removeItem("user");
+                        localStorage.removeItem("cartItems");
                         window.location.href = "/";
                       }
                     }}

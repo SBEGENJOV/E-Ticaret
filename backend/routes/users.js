@@ -12,6 +12,17 @@ router.get("/", async (req, res) => {
     res.status(500).json({ error: "Server error" });
   }
 });
+//tek kullanıcı getirme
+router.get("/:userId", async (req, res) => {
+  const userId = req.params.userId;
+  try {
+    const users = await User.findById(userId);
+    res.status(200).json(users);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Server error" });
+  }
+});
 //Kullanıcı silme
 router.delete("/:email", async (req, res) => {
   try {
