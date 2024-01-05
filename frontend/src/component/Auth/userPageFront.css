@@ -4,6 +4,8 @@ body {
   padding: 0;
 }
 .userMain{
+  width: 500px;
+  margin: 0 auto;
   margin-top: 1rem;
   border: solid ;
   border-radius: 10%;
@@ -13,11 +15,6 @@ body {
 
 h1 {
   font-size: 2em;
-}
-
-main {
-  width: 500px;
-  margin: 0 auto;
 }
 
 .input-group {

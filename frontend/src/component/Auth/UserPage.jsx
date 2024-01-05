@@ -1,5 +1,5 @@
-import { Fragment, useCallback, useEffect, useState } from "react";
-import "./userPage.css";
+import { useCallback, useEffect, useState } from "react";
+
 
 const UserPage = () => {
   const apiUrl = import.meta.env.VITE_API_BASE_URL;
@@ -11,6 +11,7 @@ const UserPage = () => {
     "tr-TR",
     options
   );
+  
 
   const fetchUsers = useCallback(async () => {
     const response = await fetch(`${apiUrl}/api/users/${deger.id}`);
@@ -24,8 +25,7 @@ const UserPage = () => {
     fetchUsers();
   }, [fetchUsers]);
   return (
-    <Fragment>
-      <></>
+    <>
       <main className="userMain">
         <form>
           <div className="input-group">
@@ -68,7 +68,7 @@ const UserPage = () => {
           </div>
         </form>
       </main>
-    </Fragment>
+    </>
   );
 };
 
