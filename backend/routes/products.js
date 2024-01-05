@@ -25,13 +25,13 @@ router.get("/", async (req, res) => {
 });
 
 // Tüm ürünleri kategoriye göre getirme
-router.get("/categryName/:categoryId", async (req, res) => {
+router.get("/categoryName/:categoryId", async (req, res) => {
   try {
     const categoryId = req.params.categoryId;
     const product = await Product.find({
       category: categoryId,
     });
-    console.log(categoryId);
+    console.log(product);
     res.status(200).json(product);
   } catch (error) {
     console.log(error);

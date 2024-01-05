@@ -25,7 +25,7 @@ const Blogs = () => {
     fetchBlog();
   }, [apiUrl]);
   const firstThreeBlogs = blogs.slice(-3); //Sondan 3'ünü almayı sagladı
-  console.log(blogs);
+
   return (
     <section className="blogs">
       <div className="container">

@@ -29,6 +29,7 @@ import CreateBlogPage from "./Pages/admin/Blog/CreateBlogPage";
 import UpdateBlogPage from "./Pages/admin/Blog/UpdateBlogPage";
 import ContactAdmin from "./Pages/admin/Contact/ContactPage";
 import UserPage from "./component/Auth/UserPage";
+import ProductCategory from "./component/Product/ProductCategory";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
       <Route path="/contact" element={<ContactPage />} />
       <Route path="/cart" element={<CartPage />} />
       <Route path="/product/:id" element={<ProductDetailsPage />} />
+      <Route path="/productCategory/:id" element={<ProductCategory />} />
       <Route path="/blog/:id" element={<BlogDetailsPage />} />
       <Route path="/blog" element={<Blogs />} />
       <Route path="/success" element={<Success />} />

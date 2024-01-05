@@ -4,7 +4,11 @@ import PropTypes from "prop-types";
 export default function CategoryItem({ category }) {
   return (
     <li className="category-item">
-      <a href="#">
+      {/* <Link to={`productCategory/${category._id}`}>
+        <img src={category.img} alt="" className="category-image" />
+        <span className="category-title">{category.name}</span>
+        </Link> */}
+      <a href={`http://localhost:5173/productCategory/${category._id}`}>
         <img src={category.img} alt="" className="category-image" />
         <span className="category-title">{category.name}</span>
       </a>
