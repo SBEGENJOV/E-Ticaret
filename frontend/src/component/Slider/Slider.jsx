@@ -1,35 +1,51 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Slider.css";
 import SliderItem from "./SliderItem";
+import PropTypes from "prop-types";
+import { message } from "antd";
 
-const Sliders = () => {
+const Sliders = ({ count }) => {
+  const apiUrl = import.meta.env.VITE_API_BASE_URL;
+  const [slider, setSlider] = useState({});
+  const [sliderRes, setSliderRes] = useState(false);
+
+  useEffect(() => {
+    const fetchSlider = async () => {
+      try {
+        const response = await fetch(`${apiUrl}/api/slider/getactive`);
+
+        if (response.ok) {
+          const data = await response.json();
+          setSliderRes(true);
+          setSlider(data);
+        } else {
+          message.error("Veri getirme başarısız.");
+        }
+      } catch (error) {
+        console.log("Veri hatası:", error);
+      }
+    };
+    fetchSlider();
+  }, [apiUrl]);
+
   const [currentSlide, setCurrentSlide] = useState(0);
-
   const nextSlide = () => {
-    setCurrentSlide((prevSlide) => (prevSlide + 1) % 3); //veritabanından gelen resimlerin lenght al
-    //! setCurrentSlide((prevSlide) => (prevSlide + 1) % data.lenght);
-    //setCurrentSlide((prevSlide) => (prevSlide + 1) % 3 buaraya kaçtane resim varsa o kadar sayı gelecek);)
+    setCurrentSlide((prevSlide) => (prevSlide + 1) % count);
   };
-
   const prevSlide = () => {
-    setCurrentSlide((prevSlide) => (prevSlide - 1 + 3) % 3);
-    //! setCurrentSlide((prevSlide) => (prevSlide - 1 + data.lenght) % data.lenght);
-    //setCurrentSlide((prevSlide) => (prevSlide - 1 + 3 aynı şekilde kaç tane resim gelecekse o sayı eklenecek) % 3 buaraya kaçtane resim varsa o kadar sayı gelecek);
+    setCurrentSlide((prevSlide) => (prevSlide - 1 + count) % count);
   };
-
   return (
     <section className="slider">
       <div className="slider-elements">
-        {/* {SliderItem.map((slide) => {
-          {
-            currentSlide === 0 && (
-              <SliderItem imageSrc={slide.img} />
-            );
-          }
-        })} */}
-        {currentSlide === 0 && <SliderItem imageSrc="img/slider/slider1.jpg" />}
-        {currentSlide === 1 && <SliderItem imageSrc="img/slider/slider2.jpg" />}
-        {currentSlide === 2 && <SliderItem imageSrc="img/slider/slider3.jpg" />}
+        {sliderRes && (
+          <>
+            {currentSlide === 0 && <SliderItem imageSrc={slider[0]} />}
+            {currentSlide === 1 && <SliderItem imageSrc={slider[1]} />}
+            {currentSlide === 2 && <SliderItem imageSrc={slider[2]} />}
+          </>
+        )}
+
         <div className="slider-buttons">
           <button onClick={prevSlide}>
             <i className="bi bi-chevron-left"></i>
@@ -38,7 +54,7 @@ const Sliders = () => {
             <i className="bi bi-chevron-right"></i>
           </button>
         </div>
-        <div className="slider-dots">
+        {/* <div className="slider-dots">
           <button
             className={`slider-dot ${currentSlide === 0 ? "active" : ""}`}
             onClick={() => setCurrentSlide(0)}
@@ -57,10 +73,15 @@ const Sliders = () => {
           >
             <span></span>
           </button>
-        </div>
+        </div> */}
       </div>
     </section>
   );
 };
 
 export default Sliders;
+
+Sliders.propTypes = {
+  count: PropTypes.number,
+  sliderRes: PropTypes.array,
+};

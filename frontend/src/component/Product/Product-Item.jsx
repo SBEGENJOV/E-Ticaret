@@ -17,7 +17,6 @@ const ProductItem = ({ productItem }) => {
   // İndirimli fiyatı hesaplama
   const discountedPrice =
     originalPrice - (originalPrice * discountPercentage) / 100;
-
   return (
     <div className="product-item glide__slide glide__slide--active">
       <div className="product-image">

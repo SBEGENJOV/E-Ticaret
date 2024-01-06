@@ -31,7 +31,6 @@ PrevBtn.propTypes = {
 
 const Product = () => {
   const [products, setProducts] = useState([]);
-
   const apiUrl = import.meta.env.VITE_API_BASE_URL;
 
   useEffect(() => {
@@ -51,7 +50,6 @@ const Product = () => {
     };
     fetchProducts();
   }, [apiUrl]);
-
   const sliderSettings = {
     dots: false,
     infinite: true,

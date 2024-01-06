@@ -12,7 +12,18 @@ router.post("/", async (req, res) => {
     res.status(500).json({ error: "Server error" });
   }
 });
+//Slider aktifleri getirme
+router.get("/getActive", async (req, res) => {
+  try {
+    const slider = await Slider.find({ isActive: true });
+    res.status(200).json(slider);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Server error" });
+  }
+});
 // Tüm Sliderleri getirme (Read- All)
+
 router.get("/", async (req, res) => {
   try {
     const slider = await Slider.find();
@@ -87,7 +98,7 @@ router.put("/active/:sliderId", async (req, res) => {
     }
 
     const updatedSlider = await Slider.findOne({ _id: sliderId });
-    updatedSlider.isActive=!updatedSlider.isActive
+    updatedSlider.isActive = !updatedSlider.isActive;
     await updatedSlider.save();
     console.log(updatedSlider);
     res.status(200).json(updatedSlider);
