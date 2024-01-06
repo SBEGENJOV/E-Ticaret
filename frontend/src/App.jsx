@@ -32,6 +32,7 @@ import ContactAdmin from "./Pages/admin/Contact/ContactPage";
 import UserPage from "./component/Auth/UserPage";
 import ProductCategory from "./component/Product/ProductCategory";
 import CreateSliderPage from "./Pages/admin/Slider/CreateSliderPage";
+import UpdateSliderPage from "./Pages/admin/Slider/UpdateSliderPage";
 
 function App() {
   return (
@@ -64,6 +65,7 @@ function App() {
         <Route path="logo/create" element={<CreateLogoPage />} />
         <Route path="slider" element={<SliderPage />} />
         <Route path="slider/create" element={<CreateSliderPage />} />
+        <Route path="slider/update/:id" element={<UpdateSliderPage />} />
         <Route path="blog" element={<BlogPage />} />
         <Route path="blog/create" element={<CreateBlogPage />} />
         <Route path="blog/update/:id" element={<UpdateBlogPage />} />

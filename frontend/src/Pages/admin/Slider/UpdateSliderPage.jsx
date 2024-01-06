@@ -1,16 +1,19 @@
 import { Button, Form, Input, Select, Spin, message } from "antd";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
-const CreateSliderPage = () => {
+const UpdateSliderPage = () => {
   const [loading, setLoading] = useState(false);
   const [form] = Form.useForm();
+  const params = useParams();
+  const sliderId = params.id;
   const apiUrl = import.meta.env.VITE_API_BASE_URL;
 
   const onFinish = async (values) => {
     setLoading(true);
     try {
-      const response = await fetch(`${apiUrl}/api/slider`, {
-        method: "POST",
+      const response = await fetch(`${apiUrl}/api/slider/${sliderId}`, {
+        method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
@@ -18,10 +21,9 @@ const CreateSliderPage = () => {
       });
 
       if (response.ok) {
-        message.success("Slider başarıyla oluşturuldu.");
-        form.resetFields();
+        message.success("Slider başarıyla güncellendi.");
       } else {
-        message.error("Slider oluşturulurken bir hata oluştu.");
+        message.error("Slider güncellenirken bir hata oluştu.");
       }
     } catch (error) {
       console.log("Slider güncelleme hatası:", error);
@@ -29,6 +31,39 @@ const CreateSliderPage = () => {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    const fetchSingleSlider = async () => {
+      setLoading(true);
+
+      try {
+        const response = await fetch(`${apiUrl}/api/slider/${sliderId}`);
+
+        if (!response.ok) {
+          throw new Error("Verileri getirme hatası");
+        }
+
+        const data = await response.json();
+
+        if (data) {
+          //otomatik doldurma işlemi yapması için kullanıldı
+          form.setFieldsValue({
+            name: data.name,
+            //formun name kısımına datadan gelen degeri yaz
+            img: data.img,
+            //formun name kısımına datadan gelen degeri yaz
+            isActive: data.isActive,
+            //formun name kısımına datadan gelen degeri yaz
+          });
+        }
+      } catch (error) {
+        console.log("Veri hatası:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchSingleSlider();
+  }, [apiUrl, sliderId, form]);
   const options = [
     {
       value: true,
@@ -42,14 +77,20 @@ const CreateSliderPage = () => {
 
   return (
     <Spin spinning={loading}>
-      <Form name="basic" layout="vertical" onFinish={onFinish} form={form}>
+      <Form
+        form={form}
+        name="basic"
+        layout="vertical"
+        autoComplete="off"
+        onFinish={onFinish}
+      >
         <Form.Item
           label="Slider İsmi"
           name="name"
           rules={[
             {
               required: true,
-              message: "Lütfen Slider adını girin!",
+              message: "Lütfen slider adını girin!",
             },
           ]}
         >
@@ -62,7 +103,7 @@ const CreateSliderPage = () => {
           rules={[
             {
               required: true,
-              message: "Lütfen kategori görsel linkini girin!",
+              message: "Lütfen slider görsel linkini girin!",
             },
           ]}
         >
@@ -86,13 +127,12 @@ const CreateSliderPage = () => {
             ))}
           </Select>
         </Form.Item>
-
         <Button type="primary" htmlType="submit">
-          Oluştur
+          Güncelle
         </Button>
       </Form>
     </Spin>
   );
 };
 
-export default CreateSliderPage;
+export default UpdateSliderPage;

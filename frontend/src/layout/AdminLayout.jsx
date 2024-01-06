@@ -11,6 +11,7 @@ import {
   StarOutlined,
   BookOutlined,
   ContactsOutlined,
+  FileImageOutlined,
 } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 
@@ -107,24 +108,7 @@ const AdminLayout = ({ children }) => {
         },
       ],
     },
-    {
-      key: "11",
-      icon: <UserOutlined />,
-      label: "Kullanıcı Listesi",
-      path: "/admin/users",
-      onClick: () => {
-        navigate(`/admin/users`);
-      },
-    },
-    {
-      key: "12",
-      icon: <ShoppingCartOutlined />,
-      label: "Siparişler",
-      path: "/admin/orders",
-      onClick: () => {
-        navigate(`/admin/orders`);
-      },
-    },
+
     {
       key: "17",
       icon: <BookOutlined />,
@@ -173,17 +157,10 @@ const AdminLayout = ({ children }) => {
         },
       ],
     },
-    {
-      key: "20",
-      icon: <ContactsOutlined />,
-      label: "Sorular",
-      onClick: () => {
-        navigate("/admin/contact");
-      },
-    },
+
     {
       key: "21",
-      icon: <StarOutlined />,
+      icon: <FileImageOutlined />,
       label: "Slider",
       path: "/slider",
       children: [
@@ -204,6 +181,32 @@ const AdminLayout = ({ children }) => {
           },
         },
       ],
+    },
+    {
+      key: "11",
+      icon: <UserOutlined />,
+      label: "Kullanıcı Listesi",
+      path: "/admin/users",
+      onClick: () => {
+        navigate(`/admin/users`);
+      },
+    },
+    {
+      key: "12",
+      icon: <ShoppingCartOutlined />,
+      label: "Siparişler",
+      path: "/admin/orders",
+      onClick: () => {
+        navigate(`/admin/orders`);
+      },
+    },
+    {
+      key: "20",
+      icon: <ContactsOutlined />,
+      label: "Sorular",
+      onClick: () => {
+        navigate("/admin/contact");
+      },
     },
     {
       key: "13",

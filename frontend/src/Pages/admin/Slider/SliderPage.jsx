@@ -33,6 +33,17 @@ const SliderPage = () => {
       render: (_, record) => (
         // iki button arasında boşluk oluşturur
         <Space>
+          <Popconfirm
+            title="Slideri Etkinleştir"
+            description="Slideri etkinleştirmek istediğinizden emin misiniz?"
+            okText="Yes"
+            cancelText="No"
+            onConfirm={() => activeSlider(record._id)}
+          >
+            <Button type="default" >
+              Durum Degiştir
+            </Button>
+          </Popconfirm>
           <Button
             type="primary"
             onClick={() => navigate(`/admin/slider/update/${record._id}`)}
@@ -90,11 +101,26 @@ const SliderPage = () => {
       console.log("Silme hatası:", error);
     }
   };
+  const activeSlider = async (categoryId) => {
+    try {
+      const response = await fetch(`${apiUrl}/api/slider/active/${categoryId}`, {
+        method: "PUT",
+      });
+
+      if (response.ok) {
+        message.success("Slider başarıyla etkinleştirildi.");
+        fetchSlider();
+      } else {
+        message.error("Etkinleştirme işlemi başarısız.");
+      }
+    } catch (error) {
+      console.log("Etkinleştirme hatası:", error);
+    }
+  };
 
   useEffect(() => {
     fetchSlider();
   }, [fetchSlider]);
-  console.log(columns);
   return (
     <>
       <Table
