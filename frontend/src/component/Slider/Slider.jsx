@@ -40,12 +40,9 @@ const Sliders = ({ count }) => {
       <div className="slider-elements">
         {sliderRes && (
           <>
-            {currentSlide === 0 && <SliderItem imageSrc={slider[0]} />}
-            {currentSlide === 1 && <SliderItem imageSrc={slider[1]} />}
-            {currentSlide === 2 && <SliderItem imageSrc={slider[2]} />}
+            {<SliderItem imageSrc={slider[currentSlide]} />}
           </>
         )}
-
         <div className="slider-buttons">
           <button onClick={prevSlide}>
             <i className="bi bi-chevron-left"></i>
