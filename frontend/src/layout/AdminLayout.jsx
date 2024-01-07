@@ -110,13 +110,13 @@ const AdminLayout = ({ children }) => {
     },
 
     {
-      key: "17",
+      key: "11",
       icon: <BookOutlined />,
       label: "Blog",
       path: "/blog",
       children: [
         {
-          key: "18",
+          key: "12",
           label: "Blog Listesi",
           path: "/admin/blog",
           onClick: () => {
@@ -124,7 +124,7 @@ const AdminLayout = ({ children }) => {
           },
         },
         {
-          key: "19",
+          key: "13",
           label: "Yeni Blog Oluştur",
           path: "/admin/blog/create",
           onClick: () => {
@@ -135,37 +135,12 @@ const AdminLayout = ({ children }) => {
     },
     {
       key: "14",
-      icon: <StarOutlined />,
-      label: "Logo",
-      path: "/logo",
-      children: [
-        {
-          key: "15",
-          label: "Logo Listesi",
-          path: "/admin/logo",
-          onClick: () => {
-            navigate(`/admin/logo`);
-          },
-        },
-        {
-          key: "16",
-          label: "Yeni Logo Oluştur",
-          path: "/admin/logo/create",
-          onClick: () => {
-            navigate("/admin/logo/create");
-          },
-        },
-      ],
-    },
-
-    {
-      key: "21",
       icon: <FileImageOutlined />,
       label: "Slider",
       path: "/slider",
       children: [
         {
-          key: "22",
+          key: "15",
           label: "Slider Listesi",
           path: "/admin/slider",
           onClick: () => {
@@ -173,7 +148,7 @@ const AdminLayout = ({ children }) => {
           },
         },
         {
-          key: "23",
+          key: "16",
           label: "Yeni Slider Oluştur",
           path: "/admin/slider/create",
           onClick: () => {
@@ -183,7 +158,16 @@ const AdminLayout = ({ children }) => {
       ],
     },
     {
-      key: "11",
+      key: "17",
+      icon: <StarOutlined />,
+      label: "Logo",
+      path: "/logo",
+      onClick: () => {
+        window.location.href = "/admin/logo";
+      },
+    },
+    {
+      key: "18",
       icon: <UserOutlined />,
       label: "Kullanıcı Listesi",
       path: "/admin/users",
@@ -192,7 +176,7 @@ const AdminLayout = ({ children }) => {
       },
     },
     {
-      key: "12",
+      key: "19",
       icon: <ShoppingCartOutlined />,
       label: "Siparişler",
       path: "/admin/orders",
@@ -209,7 +193,7 @@ const AdminLayout = ({ children }) => {
       },
     },
     {
-      key: "13",
+      key: "21",
       icon: <RollbackOutlined />,
       label: "Ana Sayfaya Git",
       onClick: () => {

@@ -7,7 +7,7 @@ import { LogoContext } from "../../../context/LogoProvidor";
 
 export default function Header({ setIsSearchShow }) {
   const { cartItems } = useContext(CartContext);
-  const { logoVeri } = useContext(LogoContext);
+  const { logoVeri,logoRes } = useContext(LogoContext);
   const { pathname } = useLocation();
   const user = localStorage.getItem("user");
   return (
@@ -30,7 +30,7 @@ export default function Header({ setIsSearchShow }) {
             <div className="header-left">
               <Link to={"/"} className="logo">
                 <img
-                  src={logoVeri}
+                  src={logoRes ?  logoVeri[0].img : <p>Hata</p>}
                   style={{ width: "80px", height: "auto" }}
                   alt="Logo"
                 />
@@ -44,10 +44,10 @@ export default function Header({ setIsSearchShow }) {
                       to={"/"}
                       className={`menu-link ${pathname === "/" && "active"}`}
                     >
-                      Home
-                      <i className="bi bi-chevron-down"></i>
+                      Ana Sayfa
+                      {/* <i className="bi bi-chevron-down"></i> */}
                     </Link>
-                    <div className="menu-dropdown-wrapper">
+                    {/* <div className="menu-dropdown-wrapper">
                       <ul className="menu-dropdown-content">
                         <li>
                           <a href="#">Home Clean</a>
@@ -77,7 +77,7 @@ export default function Header({ setIsSearchShow }) {
                           <a href="#">Home RTL</a>
                         </li>
                       </ul>
-                    </div>
+                    </div> */}
                   </li>
                   <li className="menu-list-item megamenu-wrapper">
                     <Link
@@ -86,10 +86,10 @@ export default function Header({ setIsSearchShow }) {
                         pathname === "/shop" && "active"
                       }`}
                     >
-                      Shop
-                      <i className="bi bi-chevron-down"></i>
+                      Ürünler
+                      {/* <i className="bi bi-chevron-down"></i> */}
                     </Link>
-                    <div className="menu-dropdown-wrapper">
+                    {/* <div className="menu-dropdown-wrapper">
                       <div className="menu-dropdown-megamenu">
                         <div className="megamenu-links">
                           <div className="megamenu-products">
@@ -189,7 +189,7 @@ export default function Header({ setIsSearchShow }) {
                           </a>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
                   </li>
                   <li className="menu-list-item">
                     <Link
@@ -198,7 +198,7 @@ export default function Header({ setIsSearchShow }) {
                         pathname === "/blog" && "active"
                       }`}
                     >
-                      Blog
+                      Yazılar
                     </Link>
                   </li>
                   <li className="menu-list-item">
@@ -208,7 +208,7 @@ export default function Header({ setIsSearchShow }) {
                         pathname === "/contact" && "active"
                       }`}
                     >
-                      Contact
+                      İletişim
                     </Link>
                   </li>
                 </ul>
@@ -232,9 +232,6 @@ export default function Header({ setIsSearchShow }) {
                 >
                   <i className="bi bi-search"></i>
                 </button>
-                {/* <a href="#">
-                  <i className="bi bi-heart"></i>
-                </a> */}
                 <div className="header-cart">
                   <Link to={"/cart"} className="header-cart-link">
                     <i className="bi bi-bag"></i>

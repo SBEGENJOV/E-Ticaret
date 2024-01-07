@@ -71,22 +71,22 @@ const CartTotals = () => {
 
   return (
     <div className="cart-totals">
-      <h2>Cart totals</h2>
+      <h2>Toplan Ürün</h2>
       <table>
         <tbody>
           <tr className="cart-subtotal">
-            <th>Subtotal</th>
+            <th>Toplam Maliyet</th>
             <td>
               <span id="subtotal">${subTotals.toFixed(2)}</span>
             </td>
           </tr>
           <tr>
-            <th>Shipping</th>
+            <th>Ek Özellik</th>
             <td>
               <ul>
                 <li>
                   <label>
-                    Fast Cargo: $15.00
+                    Hızlı Kargo: $15.00
                     <input
                       type="checkbox"
                       id="fast-cargo"
@@ -97,14 +97,14 @@ const CartTotals = () => {
                     />
                   </label>
                 </li>
-                <li>
+                {/* <li>
                   <a href="#">Change Address</a>
-                </li>
+                </li> */}
               </ul>
             </td>
           </tr>
           <tr>
-            <th>Total</th>
+            <th>Toplam</th>
             <td>
               <strong id="cart-total">${cartTotals}</strong>
             </td>
@@ -114,7 +114,7 @@ const CartTotals = () => {
       <div className="checkout">
         <Spin spinning={loading}>
           <button className="btn btn-lg" onClick={handlePayment}>
-            Proceed to checkout
+            Sipariş Ver
           </button>
         </Spin>
       </div>

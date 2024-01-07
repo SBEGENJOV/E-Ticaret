@@ -20,7 +20,7 @@ const Tabs = ({ singleProduct, setSingleProduct }) => {
             className={`tab-button ${activeTab === "desc" ? "active" : ""}`}
             onClick={(e) => handleTabClick(e, "desc")}
           >
-            Description
+            Ürün Açıklama
           </a>
         </li>
         <li>
@@ -29,7 +29,7 @@ const Tabs = ({ singleProduct, setSingleProduct }) => {
             className={`tab-button ${activeTab === "info" ? "active" : ""}`}
             onClick={(e) => handleTabClick(e, "info")}
           >
-            Additional information
+           Ürün Hakkında
           </a>
         </li>
         <li>
@@ -38,7 +38,7 @@ const Tabs = ({ singleProduct, setSingleProduct }) => {
             className={`tab-button ${activeTab === "reviews" ? "active" : ""}`}
             onClick={(e) => handleTabClick(e, "reviews")}
           >
-            Reviews
+            Yorumlar
           </a>
         </li>
       </ul>

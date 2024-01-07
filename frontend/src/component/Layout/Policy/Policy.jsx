@@ -8,8 +8,8 @@ export default function Policy() {
         <li className="policy-item">
           <i className="bi bi-truck"></i>
           <div className="policy-texts">
-            <strong>Ücretsiz Kargo</strong>
-            <span>100 TL üzeri</span>
+            <strong>Hızlı Ulaştırma</strong>
+            <span>Anıında Şifre</span>
           </div>
         </li>
         <li className="policy-item">

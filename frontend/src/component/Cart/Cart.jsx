@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { CartContext } from "../../context/CartProvider";
 import "./Cart.css";
 import CartCoupon from "./CartCoupon";
-import CartProgress from "./CartProgress";
+//import CartProgress from "./CartProgress";
 import CartTable from "./CartTable";
 import CartTotals from "./CartTotals";
 
@@ -13,7 +13,7 @@ const Cart = () => {
       <div className="container">
         {cartItems.length >0 ?  <div className="cart-page-wrapper">
           <form className="cart-form">
-            <CartProgress />
+            {/* <CartProgress /> */}
             <div className="shop-table-wrapper">
               <CartTable />
               <CartCoupon />

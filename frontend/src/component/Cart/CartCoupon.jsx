@@ -42,23 +42,23 @@ const CartCoupon = () => {
         <input
           type="text"
           className="input-text"
-          placeholder="Coupon code"
+          placeholder="Kupon Kod"
           onChange={(e) => setCouponCode(e.target.value)}
           value={couponCode}
         />
         {couponDurum ? (
           <button disabled className="btn" type="button" onClick={applyCoupon}>
-            Apply Coupon
+            Kupon Uygula
           </button>
         ) : (
           <button className="btn" type="button" onClick={applyCoupon}>
-            Apply Coupon
+           Kupon Uygula
           </button>
         )}
       </div>
-      <div className="update-cart">
+      {/* <div className="update-cart">
         <button className="btn">Update Cart</button>
-      </div>
+      </div> */}
     </div>
   );
 };

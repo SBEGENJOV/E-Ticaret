@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 export default function Footer() {
   const [categories, setCategories] = useState([]);
   const apiUrl = import.meta.env.VITE_API_BASE_URL;
-  const { logoVeri } = useContext(LogoContext);
+  const { logoVeri, logoRes } = useContext(LogoContext);
   useEffect(() => {
     const fetchCategories = async () => {
       try {
@@ -37,7 +37,7 @@ export default function Footer() {
                 <div className="footer-logo">
                   <Link to={"/"} className="logo">
                     <img
-                      src={logoVeri}
+                      src={logoRes ? logoVeri[0].img : <p>Hata</p>}
                       style={{ width: "80px", height: "auto" }}
                       alt="Logo"
                     />

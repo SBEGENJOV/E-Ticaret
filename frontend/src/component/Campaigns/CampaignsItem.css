@@ -18,20 +18,20 @@
 }
 
 .campaigns-wrapper:nth-child(1) .campaign-item:nth-child(1) {
-  background-image: url(../../img/campaigns/banner1.png);
+  background-image: url("https://images.pexels.com/photos/994197/pexels-photo-994197.jpeg?auto=compress&cs=tinysrgb&w=600");
 }
 
 .campaigns-wrapper:nth-child(1) .campaign-item:nth-child(2) {
-  background-image: url(../../img/campaigns/banner2.png);
+  background-image: url("https://images.pexels.com/photos/428363/pexels-photo-428363.jpeg?auto=compress&cs=tinysrgb&w=600");
 }
 
 .campaigns-wrapper:nth-child(2) .campaign-item:nth-child(1) {
-  background-image: url(../../img/campaigns/banner3.png);
+  background-image: url("https://images.pexels.com/photos/157928/young-man-male-handsome-model-attractive-157928.jpeg?auto=compress&cs=tinysrgb&w=600");
   flex: 5;
 }
 
 .campaigns-wrapper:nth-child(2) .campaign-item:nth-child(2) {
-  background-image: url(../../img/campaigns/banner4.png);
+  background-image: url("https://images.pexels.com/photos/19619624/pexels-photo-19619624/free-photo-of-moda-kadin-model-elbise.jpeg?auto=compress&cs=tinysrgb&w=600");
   flex: 3;
 }
 

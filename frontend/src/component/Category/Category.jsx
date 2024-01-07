@@ -29,8 +29,8 @@ const Categories = () => {
     <section className="categories">
       <div className="container">
         <div className="section-title">
-          <h2>All Categories</h2>
-          <p>Summer Collection New Morden Design</p>
+          <h2>Tüm Kategoriler</h2>
+          <p>Dijital İçerikler Hakkında Her şey</p>
         </div>
         <ul className="category-list">
           {categories.map((category) => (

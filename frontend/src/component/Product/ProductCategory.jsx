@@ -57,8 +57,8 @@ const ProductCategory = () => {
            <section className="products">
           <div className="container">
             <div className="section-title">
-              <h2>Featured Products</h2>
-              <p>Summer Collection New Morden Design</p>
+              <h2>Kendini Keşfet</h2>
+              <p>Aranan Ürünler</p>
             </div>
             <div className="product-wrapper">
               <div

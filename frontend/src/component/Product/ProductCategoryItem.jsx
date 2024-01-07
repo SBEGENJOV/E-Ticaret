@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 const ProductCategoryItem = ({ productItem, deg }) => {
+  const apiUrl = import.meta.env.VITE_WEB_BASE_URL;
   const deger = deg;
   const { cartItems, addToCart } = useContext(CartContext);
   const filteredCart = cartItems.find(
@@ -15,12 +16,12 @@ const ProductCategoryItem = ({ productItem, deg }) => {
 
   const discountedPrice =
     originalPrice - (originalPrice * discountPercentage) / 100;
-console.log(productItem.lenght);
   return (
     <>
-      {deger &&  <div className="product-item">
-          <div className="product-image">           
-            <a href={`http://localhost:5173/product/${productItem._id}`}>
+      {deger && (
+        <div className="product-item">
+          <div className="product-image">
+            <a href={`${apiUrl}/product/${productItem._id}`}>
               <img src={productItem.img[0]} alt="" className="img1" />
               <img src={productItem.img[1]} alt="" className="img2" />
             </a>
@@ -79,8 +80,9 @@ console.log(productItem.lenght);
               </a>
             </div>
           </div>
-        </div>}
-       { !deger && <h2>agu bugu</h2>}
+        </div>
+      )}
+      {!deger && <h2>agu bugu</h2>}
     </>
   );
 };
@@ -90,5 +92,5 @@ export default ProductCategoryItem;
 ProductCategoryItem.propTypes = {
   productItem: PropTypes.object,
   setCartItems: PropTypes.func,
-  deg:PropTypes.bool
+  deg: PropTypes.bool,
 };

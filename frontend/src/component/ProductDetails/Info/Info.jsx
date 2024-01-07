@@ -38,7 +38,7 @@ const Info = ({ singleProduct }) => {
             <i className="bi bi-star-half"></i>
           </li>
         </ul>
-        <span>2 reviews</span>
+        <span>2 Yorum</span>
       </div>
       <div className="product-price">
         <s className="old-price">${originalPrice.toFixed(2)}</s>
@@ -52,7 +52,7 @@ const Info = ({ singleProduct }) => {
         <div className="variations">
           <div className="colors">
             <div className="colors-label">
-              <span>Color</span>
+              <span>Renk</span>
             </div>
             <div className="colors-wrapper">
               {singleProduct.colors.map((color, index) => (
@@ -62,7 +62,7 @@ const Info = ({ singleProduct }) => {
                       backgroundColor: `#${color}`,
                     }}
                   >
-                    <input type="radio" name="product-color" />
+                    {/* <input type="radio" name="product-color" /> */}
                   </label>
                 </div>
               ))}
@@ -70,7 +70,7 @@ const Info = ({ singleProduct }) => {
           </div>
           <div className="values">
             <div className="values-label">
-              <span>Size</span>
+              <span>Beden</span>
             </div>
             <div className="values-list">
               {singleProduct.sizes.map((size, index) => (
@@ -99,21 +99,21 @@ const Info = ({ singleProduct }) => {
                 })
               }
             >
-              Add to cart
+              Sepete Ekle
             </button>
           </div>
           <div className="product-extra-buttons">
             <a href="#">
               <i className="bi bi-globe"></i>
-              <span>Size Guide</span>
+              <span> Ulusal Ölçü</span>
             </a>
             <a href="#">
               <i className="bi bi-heart"></i>
-              <span>Add to Wislist</span>
+              <span> Favorilere Ekle</span>
             </a>
             <a href="#">
               <i className="bi bi-share"></i>
-              <span>Share this Product</span>
+              <span> Ürünü Paylaş</span>
             </a>
           </div>
         </div>
@@ -121,15 +121,15 @@ const Info = ({ singleProduct }) => {
       <div className="divider"></div>
       <div className="product-meta">
         <div className="product-sku">
-          <span>SKU:</span>
+          <span>Ürün Kod: </span>
           <strong>BE45VGRT</strong>
         </div>
         <div className="product-categories">
-          <span>Categories:</span>
+          <span>Kategori: </span>
           <strong>Pants , Women</strong>
         </div>
         <div className="product-tags">
-          <span>Tags:</span>
+          <span>Başlıklar: </span>
           <a href="#">black</a>,<a href="#">white</a>
         </div>
       </div>

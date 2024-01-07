@@ -23,7 +23,6 @@ import OrderPage from "./Pages/admin/OrderPage";
 import DashboardPage from "./Pages/admin/DashboardPage";
 import LogoPage from "./Pages/admin/Logo/LogoPage";
 import UpdateLogoPage from "./Pages/admin/Logo/UpdateLogoPage";
-import CreateLogoPage from "./Pages/admin/Logo/CreateLogoPage";
 import SliderPage from "./Pages/admin/Slider/SliderPage";
 import BlogPage from "./Pages/admin/Blog/BlogPage";
 import CreateBlogPage from "./Pages/admin/Blog/CreateBlogPage";
@@ -62,7 +61,6 @@ function App() {
         <Route path="orders" element={<OrderPage />} />
         <Route path="logo" element={<LogoPage />} />
         <Route path="logo/update/:id" element={<UpdateLogoPage />} />
-        <Route path="logo/create" element={<CreateLogoPage />} />
         <Route path="slider" element={<SliderPage />} />
         <Route path="slider/create" element={<CreateSliderPage />} />
         <Route path="slider/update/:id" element={<UpdateSliderPage />} />

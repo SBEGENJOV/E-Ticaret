@@ -79,8 +79,8 @@ const Product = () => {
     <section className="products">
       <div className="container">
         <div className="section-title">
-          <h2>Featured Products</h2>
-          <p>Summer Collection New Morden Design</p>
+          <h2>Öne Çıkar Ürünler</h2>
+          <p>En İyi Ürünlere Sen Sahip Ol</p>
         </div>
         <div className="product-wrapper product-carousel">
           <Slider {...sliderSettings}>

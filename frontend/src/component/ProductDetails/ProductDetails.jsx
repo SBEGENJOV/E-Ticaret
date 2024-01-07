@@ -1,4 +1,4 @@
-import Breadcrumb from "./Breadcrumb/breadcrumb";
+//import Breadcrumb from "./Breadcrumb/breadcrumb";
 import Gallery from "./Gallery/Gallery";
 import Info from "./Info/Info";
 import "./ProductDetails.css";
@@ -10,7 +10,7 @@ const ProductDetails = ({ singleProduct, setSingleProduct }) => {
     <section className="single-product">
       <div className="container">
         <div className="single-product-wrapper">
-          <Breadcrumb />
+          {/* <Breadcrumb /> */}
           <div className="single-content">
             <main className="site-main">
               <Gallery singleProduct={singleProduct} />

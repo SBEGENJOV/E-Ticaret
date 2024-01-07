@@ -4,15 +4,13 @@ const CampaignItem = () => {
   return (
     <div className="campaign-item">
       <h3 className="campaign-title">
-        Fashion Month <br />
-        Ready in Capital <br />
-        Shop
+        Moda Ayı <br />
+        İçin <br />
+        Hazır Ol
       </h3>
-      <p className="campaign-desc">
-        Lorem ipsum dolor sit amet consectetur adipiscing elit dolor
-      </p>
+      <p className="campaign-desc">En Güzel Anlar Seninle Başlar</p>
       <a href="#" className="btn btn-primary">
-        View All
+        Hepsini Gör
         <i className="bi bi-arrow-right"></i>
       </a>
     </div>

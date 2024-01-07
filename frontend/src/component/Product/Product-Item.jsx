@@ -10,7 +10,7 @@ const ProductItem = ({ productItem }) => {
   const filteredCart = cartItems.find(
     (cartItem) => cartItem._id === productItem._id
   );
-
+  const apiUrl = import.meta.env.VITE_WEB_BASE_URL;
   const originalPrice = productItem.price.current;
   const discountPercentage = productItem.price.discount;
 
@@ -20,7 +20,7 @@ const ProductItem = ({ productItem }) => {
   return (
     <div className="product-item glide__slide glide__slide--active">
       <div className="product-image">
-        <a href={`http://localhost:5173/product/${productItem._id}`}>
+        <a href={`${apiUrl}/product/${productItem._id}`}>
           <img src={productItem.img[0]} alt="" className="img1" />
           <img src={productItem.img[1]} alt="" className="img2" />
         </a>

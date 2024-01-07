@@ -27,7 +27,7 @@ const Sliders = ({ count }) => {
     };
     fetchSlider();
   }, [apiUrl]);
-
+console.log(count);
   const [currentSlide, setCurrentSlide] = useState(0);
   const nextSlide = () => {
     setCurrentSlide((prevSlide) => (prevSlide + 1) % count);
@@ -38,11 +38,7 @@ const Sliders = ({ count }) => {
   return (
     <section className="slider">
       <div className="slider-elements">
-        {sliderRes && (
-          <>
-            {<SliderItem imageSrc={slider[currentSlide]} />}
-          </>
-        )}
+        {sliderRes && <>{<SliderItem imageSrc={slider[currentSlide]} />}</>}
         <div className="slider-buttons">
           <button onClick={prevSlide}>
             <i className="bi bi-chevron-left"></i>
