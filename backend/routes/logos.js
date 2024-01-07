@@ -20,7 +20,7 @@ router.post("/", async (req, res) => {
 // Tüm kategorileri getirme (Read- All)
 router.get("/", async (req, res) => {
   try {
-    const logo = await Logo.find();
+    const logo = await Logo.find({ isActive: true });
     res.status(200).json(logo);
   } catch (error) {
     console.log(error);
